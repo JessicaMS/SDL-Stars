@@ -1,0 +1,8 @@
+	A second version of my prior Stars application.  This time, the stars
+	are drawn with a more platform independent SDL_FillRect, and
+	is encapsulated into a single header file.  This header is developed
+	here independently from my Blocks application that utilizes it.
+
+This code is released under GPLv3, a copy should be available where this code or derivatives are distributed.
+
+Build on a Unix-like environment with make and g++, with SDL installed such that sdl-config operates properly.  Check the makefile for more information, default "make" assumes you are running Linux.  Code should also compile on Mac OS X and Windows XP or later.
