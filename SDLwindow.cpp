@@ -10,12 +10,13 @@
 #include "SDLwindow.h"
 
 
-Window::Window(int screenWidth, int screenHeight, int screenBPP)
+Window::Window(int screenWidth, int screenHeight, int screenBPP, std::string WindowName)
 {
 
 	this->screenWidth = screenWidth;
 	this->screenHeight= screenHeight;
 	this->screenBPP = screenBPP;
+	this->windowName = WindowName;
 	
 	
     //Set up the screen
@@ -33,7 +34,7 @@ Window::Window(int screenWidth, int screenHeight, int screenBPP)
     }
 
     //Set the window caption
-    SDL_WM_SetCaption( "Stars", NULL );
+    SDL_WM_SetCaption( this->windowName.c_str(), NULL );
 
     //Set window flag
     windowed = true;
@@ -75,11 +76,11 @@ void Window::handle_events(SDL_Event &event)
             //If the application is no longer active
             if( event.active.gain == 0 )
             {
-                SDL_WM_SetCaption( "Stars", NULL );
+                SDL_WM_SetCaption( this->windowName.c_str(), NULL );
             }
             else
             {
-                SDL_WM_SetCaption( "Stars", NULL );
+                SDL_WM_SetCaption( this->windowName.c_str(), NULL );
             }
         }
         //If something happened to the keyboard focus
@@ -88,11 +89,11 @@ void Window::handle_events(SDL_Event &event)
             //If the application lost keyboard focus
             if( event.active.gain == 0 )
             {
-                SDL_WM_SetCaption( "Stars", NULL );
+                SDL_WM_SetCaption( this->windowName.c_str(), NULL );
             }
             else
             {
-                SDL_WM_SetCaption( "Stars", NULL );
+                SDL_WM_SetCaption( this->windowName.c_str(), NULL );
             }
         }
         //If something happened to the mouse focus
@@ -101,11 +102,11 @@ void Window::handle_events(SDL_Event &event)
             //If the application lost mouse focus
             if( event.active.gain == 0 )
             {
-                SDL_WM_SetCaption( "Stars", NULL );
+                SDL_WM_SetCaption( this->windowName.c_str(), NULL );
             }
             else
             {
-                SDL_WM_SetCaption( "Stars", NULL );
+                SDL_WM_SetCaption( this->windowName.c_str(), NULL );
             }
         }
     }

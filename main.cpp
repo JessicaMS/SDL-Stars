@@ -86,7 +86,7 @@ int main( int argc, char* args[] )
 
 	delta.start();
 	
-  	Window myWindow(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP);
+  	Window myWindow(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, "Stars!");
    
 	//Initialize SDL and stuff
 	if( GameInitialize() == false)
@@ -102,28 +102,6 @@ int main( int argc, char* args[] )
 	//While the user hasn't quit
 	while(WANT_TASTY_MUSHROOM && !quit)
 	{   
-
-		//While there's events to handle
-		/*while( SDL_PollEvent( &event ) )
-		{
-			myWindow.handle_events(event);
-			if( event.key.keysym.sym == SDLK_ESCAPE)//Check for ESCAPE key
-			{
-				  quit = true;
-			}
-			if( event.type == SDL_QUIT )		//OS-level quit signal
-			{
-				quit = true;
-			}
-			//If the mouse moved
-			if( event.type == SDL_MOUSEMOTION )
-			{
-				//Get the mouse offsets
-				msx = event.motion.x;
-				msy = event.motion.y;
-			}
-			
-		}*/
 		//While there's events to handle
 		while( SDL_PollEvent( &event ) )
 		{
@@ -148,6 +126,11 @@ int main( int argc, char* args[] )
 				msx = event.motion.x;
 				msy = event.motion.y;
 			}
+
+			if( event.type == SDL_MOUSEBUTTONDOWN)
+			{
+				//msdown = 1;
+			} 
 
 		}
 
