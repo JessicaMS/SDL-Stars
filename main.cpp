@@ -4,10 +4,7 @@
 	
 	A second version of my prior Stars application.  This time, the stars
 	are drawn with a more platform independent SDL_FillRect, and
-	is encapsulated into a single header file.  This header is developed
-	here independently from my Blocks application that utilizes it.
-
-	Built to by architecturally flexible and modular for future games.
+	is encapsulated into a single header file.
 
       _._
     .    ` .
@@ -15,10 +12,10 @@
    .________.
     `""``""'
       `  `		
-	:  :	We are pillars of society. You can't run your computers, your fashion houses,   
-       :  :		your publishing houses, your damn magazines, you can't do anything 
-       ;  ;		in culture without psychedelic people in key positions. 
-      .  .		- Terence McKenna
+ 	 :  :	
+       :  :		
+       ;  ;		
+      .  .		
      '  .
     '  .
    .  .
@@ -40,7 +37,10 @@
 //Local includes
 #include "timer.h"
 #include "SDLwindow.h"
-#include "stars.h"
+#include "StarList.h"
+#ifndef StarData
+	#include "StarData.h"
+#endif
 
 
 //Global types and constants
@@ -102,7 +102,7 @@ int main( int argc, char* args[] )
 	//While the user hasn't quit
 	while(WANT_TASTY_MUSHROOM && !quit)
 	{   
-		//While there's events to handle
+		//While there are events to handle
 		while( SDL_PollEvent( &event ) )
 		{
 			//Handle window events
@@ -126,11 +126,6 @@ int main( int argc, char* args[] )
 				msx = event.motion.x;
 				msy = event.motion.y;
 			}
-
-			if( event.type == SDL_MOUSEBUTTONDOWN)
-			{
-				//msdown = 1;
-			} 
 
 		}
 
